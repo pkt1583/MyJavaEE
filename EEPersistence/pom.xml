@@ -3,17 +3,17 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.myEE</groupId>
+        <artifactId>EEejb</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../EEejb</relativePath>
+    </parent>
     <groupId>com.myEE</groupId>
     <artifactId>EEPersistence</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>1.0b</version>
-        </dependency>
 
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -22,11 +22,6 @@
             <version>4.1.0.Final</version>
         </dependency>
 
-        <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>jsr250-api</artifactId>
-            <version>1.0</version>
-        </dependency>
 
         <!-- Hibernate ORM sub-modules -->
         <dependency>

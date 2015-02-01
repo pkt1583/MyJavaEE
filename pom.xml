@@ -9,9 +9,16 @@
     <packaging>pom</packaging>
     <modules>
         <module>EEPrimarySource</module>
-        <module>EE-Web</module>
         <module>EEejb</module>
+        <module>EE-Web</module>
         <module>EEEar</module>
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>6.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
