@@ -10,6 +10,6 @@
 </parent>
     <groupId>com.myEE</groupId>
     <artifactId>EEPrimarySource</artifactId>
-
+    <packaging>jar</packaging>
 
 </project>

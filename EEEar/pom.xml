@@ -46,6 +46,7 @@
                 <configuration>
                     <applicationName>myEar</applicationName>
                     <generateApplicationXml>true</generateApplicationXml>
+                    <defaultJavaBundleDir>lib</defaultJavaBundleDir>
                     <version>6</version>
                     <modules>
                         <webModule>
