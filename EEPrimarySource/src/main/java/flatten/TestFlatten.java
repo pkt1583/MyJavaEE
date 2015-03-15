@@ -1,47 +1,52 @@
 package flatten;
 
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by pankaj on 3/11/15.
- */
-public class TestFlatten {
+public class TestFlatten<T> implements FlattenTree<T>
+{
     public static void main(String[] args) {
         Tree tree = Tree.Node.tree(Tree.Node.tree(Tree.Node.tree(Tree.Leaf.leaf(1), Tree.Leaf.leaf(8),Tree.Leaf.leaf(9)), Tree.Leaf.leaf(7), Tree.Leaf.leaf(2)), Tree.Node.tree(Tree.Leaf.leaf(3), Tree.Leaf.leaf(6), Tree.Leaf.leaf(4)), Tree.Node.tree(Tree.Leaf.leaf(12),Tree.Leaf.leaf(11),Tree.Leaf.leaf(10)));
 
         TestFlatten testFlatten=new TestFlatten();
-        System.out.println(testFlatten.flattenInOrder(tree));
+        List flatList=testFlatten.flattenInOrder(tree);
+        /*for(Object oneElement:flatList){
+            System.out.println(oneElement);
+        }*/
 
-        /*Triple root = (Triple) tree.get().ifRight(new Function<Triple, Triple>() {
-            @Override
-            public Triple apply(Triple o) {
-                return o;
-            }
-        });
-
-        System.out.println(root.get().isLeft());*/
 
     }
 
-    public List flattenInOrder(Tree tree) {
-        Either eitherLeftOrRight=tree.get();
-        Triple triple=eitherLeftOrRight.ifRight(new Function<Triple,Triple>() {
-            @Override
-            public Triple apply(Triple o) {
-                return o;
-            }
-        });
-    Either either =triple.left().;
-
-
-        if(eitherLeftOrRight.isLeft()){
-            System.out.println(eitherLeftOrRight.ifLeft(new Function() {
+    List lst=new LinkedList();
+    public List<T> flattenInOrder(Tree<T> tree)
+    {
+        if (tree == null)
+            throw new IllegalArgumentException("Tree cannot be null.");
+        if (tree.get().isLeft()) {
+            T branches=tree.get().ifLeft(new Function<T, T>() {
                 @Override
-                public Object apply(Object o) {
-                    return o;
+                public T apply(T t) {
+                    System.out.println(t);
+                    return t;
                 }
-            }));
+            });
+
+            return null;
+        }
+        else {
+             tree.get().ifRight(new Function<Triple<Tree<T>>, Triple<Tree<T>>>() {
+                @Override
+                public Triple<Tree<T>> apply(Triple<Tree<T>> treeTriple) {
+                   flattenInOrder(treeTriple.left());
+                   flattenInOrder(treeTriple.middle());
+                   flattenInOrder(treeTriple.right());
+                   return treeTriple;
+                }
+            });
         }
         return null;
+        }
     }
-}

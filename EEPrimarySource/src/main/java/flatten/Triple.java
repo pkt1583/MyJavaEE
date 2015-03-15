@@ -24,5 +24,14 @@ public class Triple<V> {
 	public V right() {
 		return r;
 	}
-	
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Triple{");
+        sb.append("l=").append(l);
+        sb.append(", m=").append(m);
+        sb.append(", r=").append(r);
+        sb.append('}');
+        return sb.toString();
+    }
 }

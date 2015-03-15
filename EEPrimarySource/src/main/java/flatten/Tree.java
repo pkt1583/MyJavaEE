@@ -21,7 +21,15 @@ public interface Tree<T> {
 		public Either<T, Triple<Tree<T>>> get() {
 			return Either.left(t);
 		}
-	}
+
+        @Override
+        public String toString() {
+            final StringBuilder sb = new StringBuilder("Leaf{");
+            sb.append("t=").append(t);
+            sb.append('}');
+            return sb.toString();
+        }
+    }
 		
 	static final class Node<T> implements Tree<T> {
 		public static <T> Tree<T> tree (T left, T middle, T right) {
@@ -38,5 +46,13 @@ public interface Tree<T> {
 		public Either<T, Triple<Tree<T>>> get() {
 			return Either.right(branches);
 		}
-	}
+
+        @Override
+        public String toString() {
+            final StringBuilder sb = new StringBuilder("Node{");
+            sb.append("branches=").append(branches);
+            sb.append('}');
+            return sb.toString();
+        }
+    }
 }

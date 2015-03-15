@@ -61,4 +61,12 @@ public class Either<A,B> {
 		return b == null;
 	}
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Either{");
+        sb.append("a=").append(a);
+        sb.append(", b=").append(b);
+        sb.append('}');
+        return sb.toString();
+    }
 }
