@@ -11,8 +11,9 @@ public class TestFlatten<T> implements FlattenTree<T>
     public static void main(String[] args) {
         Tree tree = Tree.Node.tree(Tree.Node.tree(Tree.Node.tree(Tree.Leaf.leaf(1), Tree.Leaf.leaf(8),Tree.Leaf.leaf(9)), Tree.Leaf.leaf(7), Tree.Leaf.leaf(2)), Tree.Node.tree(Tree.Leaf.leaf(3), Tree.Leaf.leaf(6), Tree.Leaf.leaf(4)), Tree.Node.tree(Tree.Leaf.leaf(12),Tree.Leaf.leaf(11),Tree.Leaf.leaf(10)));
 
-        TestFlatten testFlatten=new TestFlatten();
+        MyFlattenTree testFlatten=new MyFlattenTree();
         List flatList=testFlatten.flattenInOrder(tree);
+        System.out.println(flatList);
         /*for(Object oneElement:flatList){
             System.out.println(oneElement);
         }*/

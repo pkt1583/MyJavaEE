@@ -53,18 +53,22 @@
                             <groupId>com.myEE</groupId>
                             <artifactId>EE-Web</artifactId>
                             <contextRoot>web</contextRoot>
+                            <unpack>true</unpack>
                         </webModule>
                         <ejbModule>
                             <groupId>com.myEE</groupId>
                             <artifactId>EEejbSession</artifactId>
+                            <unpack>true</unpack>
                         </ejbModule>
                         <jarModule>
                             <groupId>com.myEE</groupId>
                             <artifactId>EEPersistence</artifactId>
+                            <unpack>true</unpack>
                         </jarModule>
                         <jarModule>
                             <groupId>com.myEE</groupId>
                             <artifactId>EEPrimarySource</artifactId>
+                            <unpack>true</unpack>
                         </jarModule>
                     </modules>
                 </configuration>
