@@ -9,9 +9,11 @@
     <packaging>pom</packaging>
     <modules>
         <module>EEPrimarySource</module>
+
         <module>EEejb</module>
         <module>EE-Web</module>
         <module>EEEar</module>
+        <module>GroovyPrimarySource</module>
     </modules>
     <dependencies>
 
