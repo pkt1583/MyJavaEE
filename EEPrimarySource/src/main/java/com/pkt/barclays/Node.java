@@ -1,9 +1,6 @@
 package com.pkt.barclays;
 
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by pankaj on 2/28/15.
@@ -37,16 +34,39 @@ public class Node {
         return destinations;
     }
 
+    public List<Node> getDestinationList(){
+        List<Node> nodeList=new ArrayList<>();
+        for(Map.Entry<Node,Integer> entry:destinations.entrySet()){
+            nodeList.add(entry.getKey());
+        }
+        return nodeList;
+    }
+
     public void setDestinations(Map<Node,Integer>destinations) {
         this.destinations = destinations;
     }
 
 
 
-    public Integer addToDestination(Node destination,Integer weight){
-       return this.destinations.put(destination,weight);
-
+    public boolean canReachDestination(Node destination,List<Node> vistedNode){
+        vistedNode.add(this);
+        if(this.equals(destination)){
+            return true;
+        }
+        for(Map.Entry<Node,Integer> probableDestinationEntry:destinations.entrySet()){
+            Node probableDestination=probableDestinationEntry.getKey();
+            if(probableDestination.canReachDestination(destination,vistedNode)){
+                return true;
+            }
+        }
+        vistedNode.remove(this);
+        return false;
     }
+
+    public Integer addToDestination(Node destination,Integer weight){
+        return this.destinations.put(destination,weight);
+    }
+
 
     @Override
     public String toString() {
@@ -73,3 +93,5 @@ public class Node {
         return nodeName.hashCode();
     }
 }
+
+
