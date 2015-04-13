@@ -10,6 +10,13 @@ public class Node {
     private Node sourceNode;
     private Map<Node,Integer> destinations=new LinkedHashMap<>() ;
 
+    public boolean isVisited() {
+        return visited;
+    }
+
+
+    private boolean visited;
+
     public Node(String nodeName){
         this.nodeName=nodeName;
     }
@@ -50,6 +57,7 @@ public class Node {
 
     public boolean canReachDestination(Node destination,List<Node> vistedNode){
         vistedNode.add(this);
+        this.visited=true;
         if(this.equals(destination)){
             return true;
         }

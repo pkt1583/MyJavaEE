@@ -75,24 +75,27 @@ public class NodeManager {
         return null;
     }
 
+
     Set<Node> paths=new HashSet<>();
     List<Node> vistedNodes=new ArrayList<>();
+
+
 
     private Node reachTillDestination(Node source,Node target){
         //check from child
         for(Node destinationNode:source.getDestinationList()){
             System.out.println("Checking for [ "+destinationNode+" ] ");
-            if(source.equals(destinationNode)){
+           /* if(source.equals(destinationNode) ){
                 continue;
-            }else {
-                if (destinationNode.canReachDestination(target, vistedNodes)) {
-                    System.out.println(vistedNodes);
-                    vistedNodes.clear();
-                    //break;
-                }else {
-                    return    reachTillDestination(destinationNode, target);
-                }
-            }
+            }else {*/
+                if(!destinationNode.isVisited()){
+                    if (destinationNode.canReachDestination(target, vistedNodes)) {
+                        System.out.println(vistedNodes);
+                        vistedNodes.clear();
+                    }
+                }//else
+                reachTillDestination(destinationNode,target);
+            //}
         }
         return null;
     }

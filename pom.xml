@@ -15,8 +15,5 @@
         <module>EEEar</module>
         <module>GroovyPrimarySource</module>
     </modules>
-    <dependencies>
-
-    </dependencies>
 
 </project>
