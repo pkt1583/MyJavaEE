@@ -4,7 +4,23 @@
 <html xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns="http://www.w3.org/1999/xhtml">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+<h:form>
+    <table>
+        <thead>Please enter Login details to the system</thead>
+        <tr>
+            <td>UserName : </td><td><h:inputText value="#{loginInfo.userId}" /></td>
+        </tr>
+
+        <tr>
+            <td>Password : </td><td><h:inputSecret value="#{loginInfo.password}" /></td>
+        </tr>
+
+        <tr>
+            <td><h:commandButton  value="Login" action="#{authenticationController.authenticate}" /></td>
+        </tr>
+    </table>
+
+
+</h:form>
+
 </html>
