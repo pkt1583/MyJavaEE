@@ -8,15 +8,15 @@
     <table>
         <thead>Please enter Login details to the system</thead>
         <tr>
-            <td>UserName : </td><td><h:inputText value="#{loginInfo.userId}" /></td>
+            <td>UserName : </td><td><h:inputText value="#{user.userId}" /></td>
         </tr>
 
         <tr>
-            <td>Password : </td><td><h:inputSecret value="#{loginInfo.password}" /></td>
+            <td>Password : </td><td><h:inputSecret value="#{user.password}" /></td>
         </tr>
 
         <tr>
-            <td><h:commandButton  value="Login" action="#{authenticationController.authenticate}" /></td>
+            <td><h:commandButton  value="Login" type="submit" action="#{authenticationController.authenticate}" /></td>
         </tr>
     </table>
 

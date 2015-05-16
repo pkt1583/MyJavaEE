@@ -1,14 +1,15 @@
 package com.auth.model;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
+import java.io.Serializable;
 
 /**
  * Created by pankaj on 16-05-2015.
  */
-@ManagedBean(name = "loginInfo")
+@Named("user")
 @SessionScoped
-public class LoginInfo {
+public class UserInfo implements Serializable {
     private String userId;
     private String password;
 
@@ -26,5 +27,13 @@ public class LoginInfo {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "LoginInfo{" +
+                "userId='" + userId + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

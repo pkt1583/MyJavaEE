@@ -8,17 +8,10 @@
         <artifactId>MyJavaEEParent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>com.myEE</groupId>
     <artifactId>EEEar</artifactId>
     <packaging>ear</packaging>
 
-
     <dependencies>
-        <dependency>
-            <groupId>com.myEE</groupId>
-            <artifactId>EEPrimarySource</artifactId>
-            <version>${project.version}</version>
-        </dependency>
         <dependency>
             <groupId>com.myEE</groupId>
             <artifactId>EEejbSession</artifactId>
@@ -27,15 +20,17 @@
         </dependency>
         <dependency>
             <groupId>com.myEE</groupId>
-            <artifactId>EEPersistence</artifactId>
+            <artifactId>EE-Web</artifactId>
             <version>${project.version}</version>
+            <type>war</type>
         </dependency>
         <dependency>
             <groupId>com.myEE</groupId>
             <artifactId>EE-Web</artifactId>
             <version>${project.version}</version>
-            <type>war</type>
+            <type>pom</type>
         </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -48,28 +43,29 @@
                     <generateApplicationXml>true</generateApplicationXml>
                     <defaultJavaBundleDir>lib</defaultJavaBundleDir>
                     <version>6</version>
+                    <skinnyWars>true</skinnyWars>
                     <modules>
                         <webModule>
                             <groupId>com.myEE</groupId>
                             <artifactId>EE-Web</artifactId>
                             <contextRoot>web</contextRoot>
-                            <unpack>true</unpack>
+                            <!--<unpack>true</unpack>-->
                         </webModule>
                         <ejbModule>
                             <groupId>com.myEE</groupId>
                             <artifactId>EEejbSession</artifactId>
                            <!-- <unpack>true</unpack>-->
                         </ejbModule>
-                        <jarModule>
+                    <!--    <jarModule>
                             <groupId>com.myEE</groupId>
                             <artifactId>EEPersistence</artifactId>
-                            <!--<unpack>true</unpack>-->
+                            &lt;!&ndash;<unpack>true</unpack>&ndash;&gt;
                         </jarModule>
                         <jarModule>
                             <groupId>com.myEE</groupId>
                             <artifactId>EEPrimarySource</artifactId>
-                           <!-- <unpack>true</unpack>-->
-                        </jarModule>
+                           &lt;!&ndash; <unpack>true</unpack>&ndash;&gt;
+                        </jarModule>-->
                     </modules>
                 </configuration>
             </plugin>
