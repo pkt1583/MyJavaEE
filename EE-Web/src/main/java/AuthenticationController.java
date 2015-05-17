@@ -18,8 +18,7 @@ public class AuthenticationController implements Serializable {
 
     @Inject  UserInfo loginInfo;
     public String authenticate(){
-    logger.debug("Called from Authenticatino Controller");
-       // logger.debug("Called with loginInfo "+loginInfo);
+       logger.debug("Called with loginInfo "+loginInfo);
         return null;
     }
 }

@@ -19,7 +19,11 @@
             <scope>compile</scope>
             <version>4.1.0.Final</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.myEE</groupId>
+            <artifactId>EEPrimarySource</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <!-- Hibernate ORM sub-modules -->
         <dependency>

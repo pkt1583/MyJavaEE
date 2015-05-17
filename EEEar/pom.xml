@@ -13,6 +13,16 @@
 
     <dependencies>
         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <dependency>
             <groupId>com.myEE</groupId>
             <artifactId>EEejbSession</artifactId>
             <version>${project.version}</version>
@@ -23,12 +33,6 @@
             <artifactId>EE-Web</artifactId>
             <version>${project.version}</version>
             <type>war</type>
-        </dependency>
-        <dependency>
-            <groupId>com.myEE</groupId>
-            <artifactId>EE-Web</artifactId>
-            <version>${project.version}</version>
-            <type>pom</type>
         </dependency>
 
     </dependencies>
@@ -41,7 +45,14 @@
                 <configuration>
                     <applicationName>myEar</applicationName>
                     <generateApplicationXml>true</generateApplicationXml>
-                    <defaultJavaBundleDir>lib</defaultJavaBundleDir>
+                    <archive>
+                       <!-- <manifest>
+                            <mainfestEntries>
+                                <key>log4j-1.2.17</key>
+                            </mainfestEntries>
+                        </manifest>-->
+                    </archive>
+                  <defaultJavaBundleDir>lib</defaultJavaBundleDir>
                     <version>6</version>
                     <skinnyWars>true</skinnyWars>
                     <modules>
@@ -56,16 +67,16 @@
                             <artifactId>EEejbSession</artifactId>
                            <!-- <unpack>true</unpack>-->
                         </ejbModule>
-                    <!--    <jarModule>
+                        <jarModule>
                             <groupId>com.myEE</groupId>
                             <artifactId>EEPersistence</artifactId>
-                            &lt;!&ndash;<unpack>true</unpack>&ndash;&gt;
+                            <!--<unpack>true</unpack>-->
                         </jarModule>
                         <jarModule>
                             <groupId>com.myEE</groupId>
                             <artifactId>EEPrimarySource</artifactId>
-                           &lt;!&ndash; <unpack>true</unpack>&ndash;&gt;
-                        </jarModule>-->
+                           <!-- <unpack>true</unpack>-->
+                        </jarModule>
                     </modules>
                 </configuration>
             </plugin>

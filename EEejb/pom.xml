@@ -17,18 +17,6 @@
         <module>../EEejbSession</module>
         <module>../EEPersistence</module>
     </modules>
-    <dependencies>
-        <dependency>
-            <groupId>com.myEE</groupId>
-            <artifactId>EEPrimarySource</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>6.0</version>
-        </dependency>
-    </dependencies>
     <build>
         <plugins>
             <plugin>
