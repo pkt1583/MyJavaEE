@@ -1,4 +1,6 @@
 import com.auth.model.UserInfo;
+import com.myee.model.AuthenticationInformation;
+import com.myee.service.AuthenticationBean;
 import org.apache.log4j.Logger;
 
 import javax.ejb.EJB;
@@ -17,8 +19,13 @@ public class AuthenticationController implements Serializable {
     protected final Logger logger=Logger.getLogger(getClass());
 
     @Inject  UserInfo loginInfo;
+    @EJB AuthenticationBean authenticationBean;
     public String authenticate(){
-       logger.debug("Called with loginInfo "+loginInfo);
-        return null;
+        logger.debug("Got request to Authenticate "+loginInfo);
+        AuthenticationInformation authenticationInformation=new AuthenticationInformation();
+        authenticationInformation.setUserName(loginInfo.getUserId());
+        authenticationInformation.setPassword(loginInfo.getPassword());
+        authenticationBean.authenticate(authenticationInformation);
+        return authenticationInformation.getGetNextPage();
     }
 }

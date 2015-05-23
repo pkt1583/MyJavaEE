@@ -13,6 +13,7 @@ public class AuthenticationBean {
     }
     public boolean authenticate (AuthenticationInformation authenticationInformation){
         if(authenticationInformation.getPassword().equals(authenticationInformation.getPassword())){
+            authenticationInformation.setGetNextPage("success");
             return true;
         }
         return false;

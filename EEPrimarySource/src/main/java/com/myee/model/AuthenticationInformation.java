@@ -8,6 +8,16 @@ public class AuthenticationInformation {
     private String password;
     private String errorMessage;
 
+    public String getGetNextPage() {
+        return getNextPage;
+    }
+
+    public void setGetNextPage(String getNextPage) {
+        this.getNextPage = getNextPage;
+    }
+
+    private String getNextPage;
+
     public String getUserName() {
         return userName;
     }
