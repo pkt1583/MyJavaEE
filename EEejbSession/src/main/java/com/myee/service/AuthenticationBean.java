@@ -6,9 +6,9 @@ import com.myee.model.AuthenticationInformation;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.*;
-import java.util.Collection;
-import java.util.List;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 /**
  * Created by pankaj on 01-02-2015.
@@ -26,6 +26,8 @@ public class AuthenticationBean {
         CriteriaQuery<UserdetailsEntity> criteriaQuery = criteriaBuilder.createQuery(UserdetailsEntity.class);
         Root<UserdetailsEntity> userdetailsEntityRoot=criteriaQuery.from(UserdetailsEntity.class);
         criteriaQuery.select(userdetailsEntityRoot).where(criteriaBuilder.equal(userdetailsEntityRoot.get("userId"),authenticationInformation.getUserName()));
+        UserdetailsEntity userdetailsEntity=entityManager.createQuery(criteriaQuery).getSingleResult();
+
         if(authenticationInformation.getPassword().equals(authenticationInformation.getPassword())){
             authenticationInformation.setGetNextPage("success");
             return true;
