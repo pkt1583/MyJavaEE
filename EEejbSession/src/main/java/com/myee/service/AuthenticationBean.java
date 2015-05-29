@@ -1,14 +1,13 @@
 package com.myee.service;
 
 import com.auth.model.UserdetailsEntity;
+import com.myee.dao.UserDao;
 import com.myee.model.AuthenticationInformation;
 
+import javax.annotation.Resource;
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  * Created by pankaj on 01-02-2015.
@@ -16,19 +15,14 @@ import javax.persistence.criteria.Root;
 @Stateless(name = "AuthenticationEJB")
 public class AuthenticationBean {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    @Inject private  UserDao<UserdetailsEntity> userDao;
 
     public AuthenticationBean() {
     }
-    public boolean authenticate (AuthenticationInformation authenticationInformation){
-        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<UserdetailsEntity> criteriaQuery = criteriaBuilder.createQuery(UserdetailsEntity.class);
-        Root<UserdetailsEntity> userdetailsEntityRoot=criteriaQuery.from(UserdetailsEntity.class);
-        criteriaQuery.select(userdetailsEntityRoot).where(criteriaBuilder.equal(userdetailsEntityRoot.get("userId"),authenticationInformation.getUserName()));
-        UserdetailsEntity userdetailsEntity=entityManager.createQuery(criteriaQuery).getSingleResult();
 
-        if(authenticationInformation.getPassword().equals(authenticationInformation.getPassword())){
+    public boolean authenticate (AuthenticationInformation authenticationInformation){
+        UserdetailsEntity userdetailsEntity = userDao.findByUserId(authenticationInformation.getUserName());
+        if(authenticationInformation.getPassword().equals(userdetailsEntity.getUserPassword())){
             authenticationInformation.setGetNextPage("success");
             return true;
         }

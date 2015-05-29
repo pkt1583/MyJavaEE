@@ -9,12 +9,10 @@
     <packaging>pom</packaging>
     <modules>
         <module>EEPrimarySource</module>
-        <module>GroovyPrimarySource</module>
         <module>EEPersistence</module>
         <module>EEejbSession</module>
         <module>EE-Web</module>
         <module>EEEar</module>
-
     </modules>
 
     <dependencies>
@@ -49,6 +47,29 @@
                     <source>1.7</source>
                     <target>1.7</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>META-INF</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/src/main/resources/META-INF</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
