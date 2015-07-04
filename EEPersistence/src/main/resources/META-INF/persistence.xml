@@ -3,16 +3,15 @@
 
     <persistence-unit name="NewPersistenceUnit">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <jta-data-source>jdbc/mysqllocal</jta-data-source>
         <class>com.auth.model.UserdetailsEntity</class>
+
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/"/>
-            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value="pankaj"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.archive.autodetection" value="class"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
-            <property name="hbm2ddl.auto" value="update"/>
+          <!--  <property name="hbm2ddl.auto" value="update"/>-->
         </properties>
     </persistence-unit>
 </persistence>

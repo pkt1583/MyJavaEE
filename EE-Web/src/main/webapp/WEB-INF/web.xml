@@ -19,11 +19,14 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
-    <servlet>
+   <!-- <servlet>
         <servlet-name>TestServlet</servlet-name>
         <servlet-class>TestServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
@@ -31,7 +34,7 @@
     <servlet-mapping>
         <servlet-name>TestServlet</servlet-name>
         <url-pattern>test</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
 
 
 </web-app>

@@ -7,15 +7,15 @@ import java.io.IOException;
 /**
  * Created by pankaj on 15-05-2015.
  */
-public class TestServlet extends HttpServlet{
+public class TestServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        process(httpServletRequest,httpServletResponse);
+        process(httpServletRequest, httpServletResponse);
     }
 
     @Override
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        process(httpServletRequest,httpServletResponse);
+        process(httpServletRequest, httpServletResponse);
     }
 
     private void process(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException {

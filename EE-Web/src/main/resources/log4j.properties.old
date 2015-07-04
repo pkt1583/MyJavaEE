@@ -1,0 +1,13 @@
+
+# Uncomment the following line to enable verbose debugging output concerning log4j initialization.
+log4j.debug=TRUE
+
+
+# The following block represents an example of how to direct logging output to a file.
+log4j.rootCategory=DEBUG, myConsole
+
+# CONSOLE is set to be a ConsoleAppender using a PatternLayout.
+log4j.appender.myConsole=org.apache.log4j.ConsoleAppender
+log4j.appender.myConsole.Threshold=DEBUG
+log4j.appender.myConsole.layout=org.apache.log4j.PatternLayout
+log4j.appender.myConsole.layout.ConversionPattern=%d | %5p | [%t] | %c:%M(%L) | %m %n
