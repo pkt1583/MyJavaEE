@@ -3,7 +3,7 @@
 
     <persistence-unit name="NewPersistenceUnit">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <jta-data-source>jdbc/mysqllocal</jta-data-source>
+        <jta-data-source>mysql</jta-data-source>
         <class>com.auth.model.UserdetailsEntity</class>
 
         <properties>
